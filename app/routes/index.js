@@ -75,6 +75,14 @@ const index = (app, db) => {
     // Research Page
     app.get("/research", isLoggedIn, researchHandler.displayResearch);
 
+    // New Endpoint
+    app.get("/test-search", (req, res) => {
+        const query = String(req.query.q || "");
+        res.type("html").send(
+            `<h1>Search results for: ${query}</h1>`
+        );
+    });
+    
     // Mount tutorial router
     app.use("/tutorial", tutorialRouter);
 
