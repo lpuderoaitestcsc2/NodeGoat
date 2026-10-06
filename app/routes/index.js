@@ -83,6 +83,13 @@ const index = (app, db) => {
         );
     });
     
+    // donwload endpoint
+    app.get("/download", (req, res) => {
+        const filename = String(req.query.file || "favicon.ico");
+        const filePath = path.resolve(__dirname, "../assets", filename);
+        res.sendFile(filePath);
+    });
+    
     // Mount tutorial router
     app.use("/tutorial", tutorialRouter);
 
