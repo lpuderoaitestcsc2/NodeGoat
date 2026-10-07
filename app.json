@@ -1,13 +1,12 @@
 {
-  "name": "OWASP NodeGoat",
-  "description": "Educational tool to learn about OWASP Top 10 for node.js apps.",
+  "name": "Benefits Portal",
+  "description": "Employee benefits and retirement savings management with profiles, contributions, allocations, and research.",
   "keywords": [
-    "security",
     "node.js",
-    "OWASP Top 10"
+    "employee benefits",
+    "retirement",
+    "mongodb"
   ],
-  "website": "https://www.owasp.org/index.php/Projects/OWASP_Node_js_Goat_Project",
-  "logo": "https://www.owasp.org/skins/owasplogo.png",
   "success_url": "/login",
   "scripts": {
     "postdeploy": "node artifacts/db-reset.js"
@@ -22,8 +21,8 @@
       "value": "production"
     },
     "NPM_CONFIG_ONLY": {
-       "description": "Controls devDependency install: \"production\" = skip, \"all\" = install",
-       "value": "production"
+      "description": "Controls devDependency install: \"production\" = skip, \"all\" = install",
+      "value": "production"
     }
   }
 }

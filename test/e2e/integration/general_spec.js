@@ -53,7 +53,7 @@ describe("General behaviour", () => {
     cy.get(".user-dropdown a")
       .eq(0)
       .invoke("text")
-      .should("eq", " Node Goat Admin ");
+      .should("eq", " Portal Admin ");
 
     cy.get(".user-dropdown a")
       .eq(1)

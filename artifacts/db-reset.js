@@ -13,7 +13,7 @@ const USERS_TO_INSERT = [
     {
         "_id": 1,
         "userName": "admin",
-        "firstName": "Node Goat",
+        "firstName": "Portal",
         "lastName": "Admin",
         "password": "Admin_123",
         //"password" : "$2a$10$8Zo/1e8KM8QzqOKqbDlYlONBOzukWXrM.IiyzqHRYDXqwB3gzDsba", // Admin_123
@@ -94,7 +94,7 @@ MongoClient.connect(db, (err, db) =>  {
             parseResponse(err, data, "countersCol.insert");
         });
 
-        // insert admin and test users
+        // insert initial accounts
         console.log("Users to insert:");
         USERS_TO_INSERT.forEach((user) => console.log(JSON.stringify(user)));
 

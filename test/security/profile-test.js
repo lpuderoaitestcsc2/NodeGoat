@@ -49,7 +49,6 @@ test.before(function() {
     this.timeout(20000);
     webDriver = new seleniumWebdriver.Builder()
         .withCapabilities(seleniumWebdriver.Capabilities.chrome())
-        // http://code.tutsplus.com/tutorials/an-introduction-to-webdriver-using-the-javascript-bindings--cms-21855
         // Proxy all requests through Zap before using Zap to find vulnerabilities,
         // otherwise Zap will say: "URL not found in the scan tree".
         .setProxy(proxy.manual({
@@ -84,7 +83,7 @@ test.after(function() {
     var overWrite = true;
     this.timeout(10000);
     webDriver.quit();
-    zaproxy.core.newSession("new NodeGoat session", overWrite, zapApiKey, function() {});
+    zaproxy.core.newSession("new Benefits Portal session", overWrite, zapApiKey, function() {});
     //zaproxy.core.shutdown(zapApiKey, function () {});
 });
 
@@ -96,7 +95,6 @@ test.describe(zapTargetAppRoute + " regression test suite", function() {
     // Links that were useful for getting up and running:
     // http://simpleprogrammer.com/2014/02/03/selenium-with-node-js/
     // http://www.vapidspace.com/coding/2014/02/08/automating-selenium-tests-with-grunt-and-mocha/
-    // http://bites.goodeggs.com/posts/selenium-webdriver-nodejs-tutorial/
     test.it("Should not exceed the decided threshold of vulnerabilities known to Zap", function(done) {
         var contextId = 1;
         var userId;

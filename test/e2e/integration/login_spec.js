@@ -15,21 +15,6 @@ describe("/login behaviour", () => {
     cy.visitPage("/login");
   });
 
-  it("should have tutorial Guide link", () => {
-    cy.get("a[href='/tutorial']")
-      .should("have.attr", "target", "_blank")
-      .and("be.visible");
-  });
-
-  it("Should open the tutorial in another tab", () => {
-    cy.get("a[href='/tutorial']").then(function ($a) {
-      const href =
-      $a.prop("href");
-      cy.visit(href);
-      cy.url().should("include", "tutorial");
-    });
-  });
-
   it("should have admin user able to login", () => {
     cy.fixture("users/admin.json").as("admin");
     cy.get("@admin").then(admin => {
