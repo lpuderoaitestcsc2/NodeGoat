@@ -27,10 +27,18 @@ function ContributionsHandler(db) {
 
     this.handleContributionsUpdate = (req, res, next) => {
 
-        /*jslint evil: true */
-        const preTax = eval(req.body.preTax);
-        const afterTax = eval(req.body.afterTax);
-        const roth = eval(req.body.roth);
+        // Accept only finite, non-negative decimal percentages from form fields.
+        // Never interpret user-supplied values as executable JavaScript.
+        const parsePercentage = value => {
+            if (typeof value !== "string" || !/^(?:0|[1-9]\\d*)(?:\\.\\d+)?$/.test(value.trim())) {
+                return NaN;
+            }
+            const parsed = Number(value.trim());
+            return Number.isFinite(parsed) ? parsed : NaN;
+        };
+        const preTax = parsePercentage(req.body.preTax);
+        const afterTax = parsePercentage(req.body.afterTax);
+        const roth = parsePercentage(req.body.roth);
 
         const {
             userId
