@@ -30,7 +30,7 @@ function ContributionsHandler(db) {
         // Accept only finite, non-negative decimal percentages from form fields.
         // Never interpret user-supplied values as executable JavaScript.
         const parsePercentage = value => {
-            if (typeof value !== "string" || !/^(?:0|[1-9]\\d*)(?:\\.\\d+)?$/.test(value.trim())) {
+            if (typeof value !== "string" || !/^(?:0|[1-9]\d*)(?:\.\d+)?$/.test(value.trim())) {
                 return NaN;
             }
             const parsed = Number(value.trim());
